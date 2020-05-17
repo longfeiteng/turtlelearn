@@ -10,20 +10,30 @@
 import turtle
 
 
+def draw_5_star_multiple(size):
+    draw_5_star(size)
+    size += 20
+    if size <= 300:
+        draw_5_star_multiple(size)
+
+
 def draw_5_star(size):
     count = 1
     while count <= 5:
         turtle.forward(size)
         turtle.right(144)
         count += 1
-    size += 20
-    if size <= 100:
-        draw_5_star(size)
 
 
 def main():
+    # 设置turtle的初始化
+    turtle.penup()
+    turtle.back(200)
+    turtle.pendown()
+    turtle.pensize(2)
+    turtle.pencolor('red')
     size = 20
-    draw_5_star(size)
+    draw_5_star_multiple(size)
     turtle.exitonclick()
 
 
